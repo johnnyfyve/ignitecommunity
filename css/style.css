@@ -905,7 +905,7 @@
 
 	#header-wrapper
 	{
-		position: relative;
+		/*position: relative;
 		background: #f08c89;
 		background-image: url('images/header.svg');
 		background-image: url('images/header.svg'), -moz-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
@@ -913,6 +913,8 @@
 		background-image: url('images/header.svg'), -o-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
 		background-image: url('images/header.svg'), -ms-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
 		background-image: url('images/header.svg'), linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
+		*/
+		background: #ffcc33 url('images/ignite-background-03.jpg') 100% 100%;
 	}
 	
 		#header-wrapper:before
@@ -941,9 +943,10 @@
 	{
 		position: relative;
 		border-top: solid 1px #c2c7cc;
-		background-image: url('images/footer.svg');
+		/*background-image: url('images/footer.svg');
 		background-size: 100% 100%;
-		-webkit-transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0,0,0);*/
+		background-image: url('images/ignite-background-04.jpg') 100% 100%;
 	}
 
 		#footer-wrapper:before
