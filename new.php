@@ -22,6 +22,12 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-n1.css" />
 		</noscript>
+		<script type="text/javascript">
+		function submitForm(){
+
+			document.getElementById('contactForm').submit();
+		}
+		</script>
 	</head>
 	<body class="homepage">
 
@@ -56,14 +62,6 @@
 						<p>An evening of multi-denominational worship and prayer for this generation of children</p>
 						<ul class="actions">
 							<li><a href="#contactDetails" class="button">Learn More</a></li>
-						</ul>
-						<h2>Event Details</h2>
-						<ul>
-							<li>Ignite Night of Prayer</li>
-							<li>August 3, 2013 - 7:00 to 8:30 p.m.</li>
-							<li><a href="http://creativechurch.cc">Creative Church</a></li>
-							<li>290 New River Parkway</li>
-							<li>Hardeeville, SC, 29927</li>
 						</ul>
 					</section>
 
@@ -130,13 +128,13 @@
 								<li>290 New River Parkway</li>
 								<li>Hardeeville, SC, 29927</li>
 							</ul>
-							<!--<h2>Contact Us</h2>
-							<p>Call Rachelle Miller at ___-___-____, or send a message through the form below.</p>-->
+							<h2>Contact Us</h2>
+							<p>Send a message through the form below to find out more.</p>
 						</header>
 						<!--
 						<div class="row">
 							<section class="6u">
-								<form method="post" action="#">
+								<form method="post" action="verify.php" id="contactForm">
 									<div class="row half">
 										<div class="6u">
 											<input name="name" placeholder="Name" type="text" class="text" />
@@ -152,8 +150,17 @@
 									</div>
 									<div class="row half">
 										<div class="12u">
+										<?php
+								          require_once('recaptchalib.php');
+								          $publickey = "6LcRGOQSAAAAAKbOfsKvYEbPk19bMv1yTYRW3Sig"; // you got this from the signup page
+								          echo recaptcha_get_html($publickey);
+								        ?>
+										</div>
+									</div>
+									<div class="row half">
+										<div class="12u">
 											<ul class="actions">
-												<li><a href="#" class="button">Send Message</a></li>
+												<li><a href="javascript:submitForm();" class="button">Send Message</a></li>
 											</ul>
 										</div>
 									</div>
@@ -167,8 +174,9 @@
 									</ul>
 								</div>
 							</section>
+
 						</div>
-					-->
+						-->
 					</div>
 
 				<!-- Copyright -->
