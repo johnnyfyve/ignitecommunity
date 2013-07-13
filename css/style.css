@@ -914,7 +914,7 @@
 		background-image: url('images/header.svg'), -ms-linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
 		background-image: url('images/header.svg'), linear-gradient(75deg, #FF7088 15%, #F2B69D 55%);
 		*/
-		background: #ffcc33 url('images/ignite-background-03.jpg') 100% 100%;
+		background: #102D47 url('images/ignite-background-03.jpg') 100% 100%;
 	}
 	
 		#header-wrapper:before

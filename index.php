@@ -22,55 +22,6 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-n1.css" />
 		</noscript>
-
-		<script type="text/javascript">
-
-		/*
-		$(document).ready(function() {
-
-
-			// variable to hold request
-			var request;
-			// bind to the submit event of our form
-			$("#contactForm").submit(function(event){
-			    // abort any pending request
-			    if (request) {
-			        request.abort();
-			    }
-			    // setup some local variables
-			    var $form = $(this);
-			    // let's select and cache all the fields
-			    var $inputs = $form.find("input, select, button, textarea");
-			    // serialize the data in the form
-			    var serializedData = $form.serialize();
-
-			    // let's disable the inputs for the duration of the ajax request
-			    $inputs.prop("disabled", true);
-
-			    // fire off the request to /form.php
-			    request = $.ajax({
-			        url: "process-form.php",
-			        type: "post",
-			        data: serializedData
-			    });
-
-			    // callback handler that will be called on success
-			    request.done(function (response, textStatus, jqXHR){
-			        alert('success!');
-			    });
-
-			    // callback handler that will be called on failure
-			    request.fail(function (jqXHR, textStatus, errorThrown){
-			    });
-
-			    // prevent default posting of form
-			    event.preventDefault();
-			});
-
-		});
-		*/
-
-		</script>
 	</head>
 	<body class="homepage">
 
@@ -172,12 +123,11 @@
 								<li>Hardeeville, SC, 29927</li>
 							</ul>
 							
-							<h2>Learn More</h2>
-							<p>Call Rachelle Miller at (843) 298-5757</p>
+							<h2>Contact Us</h2>
+							<p>Call Rachelle Miller at (843) 298-5757, or send a message through the form below.</p>
 							
 						</header>
 						
-						<!--
 						<div class="row">
 							<section class="6u">
 								<form method="post" action="#" id="contactForm">
@@ -196,6 +146,15 @@
 									</div>
 									<div class="row half">
 										<div class="12u">
+										<?php
+								          require_once('recaptchalib.php');
+								          $publickey = "6LcRGOQSAAAAAKbOfsKvYEbPk19bMv1yTYRW3Sig"; // you got this from the signup page
+								          echo recaptcha_get_html($publickey);
+								        ?>
+										</div>
+									</div>
+									<div class="row half">
+										<div class="12u">
 											<ul class="actions">
 												<li><a href="#" class="button">Send Message</a></li>
 											</ul>
@@ -203,8 +162,19 @@
 									</div>
 								</form>
 							</section>
+							<!--
+							<section class="6u">
+								<div class="row no-collapse-1">
+									<ul class="divided icons 6u">
+										<li class="icon icon-twitter"><a href="#"><span class="extra">twitter.com/</span>untitled</a></li>
+										<li class="icon icon-facebook"><a href="#"><span class="extra">facebook.com/</span>untitled</a></li>
+									</ul>
+								</div>
+							</section>
+							-->
+							
 						</div>
-						-->
+						
 					</div>
 
 				<!-- Copyright -->

@@ -10,6 +10,10 @@
     // What happens when the CAPTCHA was entered incorrectly
     die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
          "(reCAPTCHA said: " . $resp->error . ")");
+
+    // redirect to page with error message
+    header( 'Location: index.php?error= ) ;
+
   } else {
     // Your code here to handle a successful verification
 
