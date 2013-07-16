@@ -25,12 +25,12 @@
 
 		<script type="text/javascript">
 
-		/*
 		$(document).ready(function() {
 
 
 			// variable to hold request
 			var request;
+			
 			// bind to the submit event of our form
 			$("#contactForm").submit(function(event){
 			    // abort any pending request
@@ -41,13 +41,28 @@
 			    var $form = $(this);
 			    // let's select and cache all the fields
 			    var $inputs = $form.find("input, select, button, textarea");
+			   
+			    // *** Perform form validation
+			    /*for (var i=0; i<$inputs.length; i++){
+			    	
+			    	alert('i = ' + i + ' and $inputs[i] = ' + $inputs[i]);
+			    	if($inputs[i].value == ""){
+
+			    		$inputs[i].value = "Please enter a value";
+			    		$inputs[i].class = ".warning";
+			    		break;
+			    		
+			    	}
+			    	
+			    }*/
+
 			    // serialize the data in the form
 			    var serializedData = $form.serialize();
 
 			    // let's disable the inputs for the duration of the ajax request
 			    $inputs.prop("disabled", true);
 
-			    // fire off the request to /form.php
+			    // fire off the request to /process-form.php
 			    request = $.ajax({
 			        url: "process-form.php",
 			        type: "post",
@@ -56,7 +71,9 @@
 
 			    // callback handler that will be called on success
 			    request.done(function (response, textStatus, jqXHR){
-			        alert('success!');
+			        alert(response);
+
+
 			    });
 
 			    // callback handler that will be called on failure
@@ -68,7 +85,6 @@
 			});
 
 		});
-		*/
 
 		</script>
 	</head>
@@ -142,6 +158,13 @@
 							<p>There will be light refreshments following the worship and time of prayer. This event was planned by a group of people representing several churches in our area.  We would like to extend a special word of thanks to Pastor Eric Clark for allowing us to use the grounds of Creative Church.</p>
 							<p>Creative Church is conveniently located between Hilton Head and Beaufort at 290 New River Parkway</p>
 						</section>
+						<section class="6u feature">
+							<header>
+								<h2>Donations accepted!</h2>
+							</header>
+							<p>Donations of school supplies or a cash donation towards school supplies for
+needy children in our community can be brought to the event and would be greatly appreciated!</p>
+						</section>
 					</div>
 				</div>
 
@@ -183,7 +206,7 @@
 								<form method="post" action="#" id="contactForm">
 									<div class="row half">
 										<div class="6u">
-											<input name="name" placeholder="Name" type="text" class="text" />
+											<input name="name" placeholder=" Name" type="text" class="text" />
 										</div>
 										<div class="6u">
 											<input name="email" placeholder="Email" type="text" class="text" />
@@ -197,14 +220,15 @@
 									<div class="row half">
 										<div class="12u">
 											<ul class="actions">
-												<li><a href="#" class="button">Send Message</a></li>
+												<li><a href="#" class="button" onClick="javascript:$('#contactForm').submit();">Send Message</a></li>
 											</ul>
 										</div>
 									</div>
 								</form>
 							</section>
 						</div>
-						-->
+					-->
+						
 					</div>
 
 				<!-- Copyright -->

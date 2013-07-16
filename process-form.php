@@ -1,6 +1,20 @@
 <?
-// form processing code
+// *** Form processing code
 
-echo('hey');
+// *** First get variables
+
+
+
+// *** Then assemble email
+
+
+
+// *** Send email to recipients
+
+
+// *** Create repsonse message for form page
+
+echo('Thank you - your request has been sent.');
+
 
 ?>
