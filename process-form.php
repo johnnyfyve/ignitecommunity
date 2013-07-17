@@ -7,7 +7,7 @@ $requestEmail = $_POST["email"];
 $requestMessage = $_POST["message"];
 
 // *** Then assemble email
-$emailMessage = "Dear IgniteCommunity.net Site Admin:\n\nThe following message was sent through the IgniteCommunity.net contact form:\n\nFrom:  ".$requestName."\nEmail:".$requestEmail."\nMessage:\n\n".wordwrap($requestMessage, 70, "\r\n")."\n\nIgniteCommunity.net";
+$emailMessage = "Dear IgniteCommunity.net Site Admin:\n\nThe following message was sent through the IgniteCommunity.net contact form:\n\nFrom:  ".$requestName."\nEmail: ".$requestEmail."\nMessage:\n\n".wordwrap($requestMessage, 70, "\r\n")."\n\nIgniteCommunity.net";
 
 // *** Send email to recipients
 mail('johnnyfyve@gmail.com', 'IngiteCommunity.net site contact request', $emailMessage);
