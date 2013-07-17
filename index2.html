@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<!--
+	Telephasic 1.0 by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>ignitecommunity.net</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="Ignite is an evening of multi-denominational worship and prayer for this generation of children" />
+		<meta name="keywords" content="ignite, worship, prayer, children, generation, creative church, hardeeville" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css" />
+		<!--[if lte IE 8]><script src="js/html5shiv.js"><![endif]-->
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.dropotron.js"></script>
+		<script src="js/skel.min.js"></script>
+		<script src="js/skel-panels.min.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-n1.css" />
+		</noscript>
+
+		<script type="text/javascript">
+
+		$(document).ready(function() {
+
+
+			// variable to hold request
+			var request;
+			var formValid = 0;
+			
+			// bind to the submit event of our form
+			$("#contactForm").submit(function(event){
+
+				//alert('event = '+ event);
+			    // abort any pending request
+			    if (request) {
+			        request.abort();
+			        formValid = 0;
+			    }
+			    // setup some local variables
+			    var $form = $(this);
+			    // let's select and cache all the fields
+			    var $inputs = $form.find("input, select, button, textarea");
+			    //alert('$inputs = ' + $inputs);
+			   	
+			    // *** Perform form validation
+			    for (var i=0; i<$inputs.length; i++){
+			    	
+			    	//alert('i = ' + i + ' and $inputs[i] = ' + $inputs[i]);
+			    	if($inputs[i].value == ""){
+
+			    		//alert('Please fill out every field in the request form.');
+			    		//$inputs[i].value = "Please enter a value";
+			    		//$inputs[i].class = ".warning";
+			    		$('#formFeedbackContainer').html('<p>Please fill out every field in the request form.</p>');
+			    		formValid = 0;
+			    		break;
+			    		
+			    	} else {
+			    		formValid = 1;
+			    	}
+			    }
+
+			    if(formValid == 1){
+
+			    	//alert('form valid and proceeding!');
+
+				    // serialize the data in the form
+				    var serializedData = $form.serialize();
+
+				    // let's disable the inputs for the duration of the ajax request
+				    $inputs.prop("disabled", true);
+
+				    // fire off the request to /process-form.php
+				    request = $.ajax({
+				        url: "process-form.php",
+				        type: "post",
+				        data: serializedData
+				    });
+
+				    // callback handler that will be called on success
+				    request.done(function (response, textStatus, jqXHR){
+				        //alert(response);
+				        $('#formFeedbackContainer').html('<p>'+response+'</p>');
+				        $inputs.prop("disabled", false);
+				    });
+
+				    // callback handler that will be called on failure
+				    request.fail(function (jqXHR, textStatus, errorThrown){
+				    });
+
+				} else {
+
+				}
+
+				// *** prevent default posting of form
+				event.preventDefault();
+			});
+
+		});
+
+		</script>
+	</head>
+	<body class="homepage">
+
+		<!-- Header Wrapper -->
+			<div id="header-wrapper">
+						
+				<!-- Header -->
+					<div id="header" class="container">
+						
+						<!-- Logo -->
+							<h1 id="logo"><a href="index.html"><img src="images/ignite-logo.png"></a></h1>
+						
+						<!-- Nav -->
+							<!--
+							<nav id="nav">
+								<ul>
+									<li><a href="">Events</a></li>
+									<li><a href="">About</a></li>
+									<li class="break"><a href="">Resources</a></li>
+									<li><a href="">Contact</a></li>
+								</ul>
+							</nav>
+							-->
+
+					</div>
+
+				<!-- Hero -->
+					<section id="hero" class="container">
+						<header>
+							<h2>Join Us August 3, 2013 from 7:00 - 8:30 p.m. at Creative Church for "Ignite"</h2>
+						</header>
+						<p>An evening of multi-denominational worship and prayer for this generation of children</p>
+						<ul class="actions">
+							<li><a href="#contactDetails" class="button">Learn More</a></li>
+						</ul>
+					</section>
+
+			</div>
+
+		<!-- Features 1 -->
+			<div class="wrapper">
+
+				<div class="container">
+					<div class="row">
+						<section class="6u feature">
+							<header>
+								<h2>Ignite means to set on fire, to light up, to evoke, to stir up, to rise up, and to call forth.</h2>
+							</header>
+							<p>“Therefore, since we are receiving a kingdom that cannot be shaken, let us be thankful, and so worship God acceptably with reverence and awe, for our God is a consuming fire.”</p>
+							<p>Hebrews 12:28-29</p>
+						</section>
+						<section class="6u feature">
+							<header>
+								<h2>As our children prepare to enter another school year, they need their church community to come together and raise them up in prayer.</h2>
+							</header>
+							<p>Come and Pray for your children, your grandchildren and the generations to follow that they would:</p>
+							<ul>
+								<li>Come to know Jesus as their Savior</li>
+								<li>Declare it to the generations to come</li>
+								<li>Set their hope in God</li>
+								<li>Forget not His works and</li>
+							 	<li>Keep His commands</li>
+							</ul>
+						</section>
+						<section class="6u feature">
+							<header>
+								<h2>This will be an outside event so bring your beach chairs or a blanket. Children are more than welcome but childcare will not be provided at this event.</h2>
+							</header>
+							<p>There will be light refreshments following the worship and time of prayer. This event was planned by a group of people representing several churches in our area.  We would like to extend a special word of thanks to Pastor Eric Clark for allowing us to use the grounds of Creative Church.</p>
+							<p>Creative Church is conveniently located between Hilton Head and Beaufort at 290 New River Parkway</p>
+						</section>
+						<section class="6u feature">
+							<header>
+								<h2>Donations accepted!</h2>
+							</header>
+							<p>Donations of school supplies or a cash donation towards school supplies for
+needy children in our community can be brought to the event and would be greatly appreciated!</p>
+						</section>
+					</div>
+				</div>
+
+			</div>
+			
+		<!-- Promo -->
+			<div id="promo-wrapper">
+			
+				<section id="promo">
+					<h2>When we come together and pray, God stands ready to answer.  God is faithful and we can expect Him to do exceedingly more than we can ask or imagine.</h2>
+				</section>
+			
+			</div>
+
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+
+				<!-- Footer -->
+					<div id="footer" class="container">
+						<header class="major">
+							<a name="contactDetails" />
+							<h2>Event Details</h2>
+							<ul>
+								<li>Ignite Night of Prayer</li>
+								<li>August 3, 2013 - 7:00 to 8:30 p.m.</li>
+								<li>Creative Church</li>
+								<li>290 New River Parkway</li>
+								<li>Hardeeville, SC, 29927</li>
+							</ul>
+							
+							<a name="learnMore" />
+							<h2>Learn More</h2>
+							<p>Call Rachelle Miller at (843) 298-5757.</p>
+							<div id="formFeedbackContainer"></div>	
+							
+						</header>
+						
+						
+						<div class="row">
+							<section class="6u">
+								<form method="post" action="#" id="contactForm">
+									<div class="row half">
+										<div class="6u">
+											<input name="name" placeholder=" Name" type="text" class="text" />
+										</div>
+										<div class="6u">
+											<input name="email" placeholder="Email" type="text" class="text" />
+										</div>
+									</div>
+									<div class="row half">
+										<div class="12u">
+											<textarea name="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<div class="row half">
+										<div class="12u">
+											<ul class="actions">
+												<li><a href="#learnMore" class="button" onClick="javascript:$('#contactForm').submit();">Send Message</a></li>
+											</ul>
+										</div>
+									</div>
+								</form>
+							</section>
+						</div>
+						
+						
+					</div>
+
+				<!-- Copyright -->
+					<div id="copyright" class="container">
+						<ul class="menu">
+							<li>&copy; Ignite Community Ministries. All rights reserved.</li>
+							<li>Design: <a href="http://html5up.net/">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+	</body>
+</html>
