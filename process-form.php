@@ -11,7 +11,7 @@ $emailMessage = "Dear IgniteCommunity.net Site Admin:\n\nThe following message w
 
 $headers = 'From: info@ignitecommunity.net' . "\r\n" .
     'Reply-To: info@ignitecommunity.net' . "\r\n" .
-    'CC:johnnyfyve@gmai.com';
+    'CC:johnnyfyve@gmail.com';
 
 // *** Send email to recipients
 mail('rachelle1130@yahoo.com', 'IngiteCommunity.net site contact request', $emailMessage, $headers);
