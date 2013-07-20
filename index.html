@@ -27,70 +27,51 @@
 
 		$(document).ready(function() {
 
-
-			// variable to hold request
+			// *** variable to hold request
 			var request;
 			var formValid = 0;
 			
-			// bind to the submit event of our form
+			// *** bind to the submit event of our form
 			$("#contactForm").submit(function(event){
-
-				//alert('event = '+ event);
-			    // abort any pending request
+			    // *** abort any pending request
 			    if (request) {
 			        request.abort();
 			        formValid = 0;
 			    }
-			    // setup some local variables
+			    // *** local variables
 			    var $form = $(this);
-			    // let's select and cache all the fields
+			    // *** select and cache all the fields
 			    var $inputs = $form.find("input, select, button, textarea");
-			    //alert('$inputs = ' + $inputs);
 			   	
 			    // *** Perform form validation
 			    for (var i=0; i<$inputs.length; i++){
-			    	
-			    	//alert('i = ' + i + ' and $inputs[i] = ' + $inputs[i]);
 			    	if($inputs[i].value == ""){
-
-			    		//alert('Please fill out every field in the request form.');
-			    		//$inputs[i].value = "Please enter a value";
-			    		//$inputs[i].class = ".warning";
 			    		$('#formFeedbackContainer').html('<p>Please fill out every field in the request form.</p>');
 			    		formValid = 0;
 			    		break;
-			    		
 			    	} else {
 			    		formValid = 1;
 			    	}
 			    }
 
 			    if(formValid == 1){
-
-			    	//alert('form valid and proceeding!');
-
-				    // serialize the data in the form
+				    // *** serialize the data in the form
 				    var serializedData = $form.serialize();
 
-				    // let's disable the inputs for the duration of the ajax request
+				    // *** let's disable the inputs for the duration of the ajax request
 				    $inputs.prop("disabled", true);
 
-				    // fire off the request to /process-form.php
+				    // *** fire off the request to /process-form.php
 				    request = $.ajax({
 				        url: "process-form.php",
 				        type: "post",
 				        data: serializedData
 				    });
 
-				    // callback handler that will be called on success
+				    // *** callback handler that will be called on success
 				    request.done(function (response, textStatus, jqXHR){
-				        //alert(response);
 				        $('#formFeedbackContainer').html('<p>'+response+'</p>');
 				        $inputs.prop("disabled", false);
-				    });
-
-				    // callback handler that will be called on failure
-				    request.fail(function (jqXHR, textStatus, errorThrown){
 				    });
 
 				} else {
@@ -214,12 +195,12 @@ needy children in our community can be brought to the event and would be greatly
 							
 							<a name="learnMore" />
 							<h2>Learn More</h2>
-							<p>Call Rachelle Miller at (843) 298-5757.</p>
+							<p>Call Rachelle Miller at (843) 298-5757, or send a message through the feedback form below.</p>
 							<div id="formFeedbackContainer"></div>	
 							
 						</header>
 						
-						<!--
+						
 						<div class="row">
 							<section class="6u">
 								<form method="post" action="#" id="contactForm">
@@ -233,7 +214,7 @@ needy children in our community can be brought to the event and would be greatly
 									</div>
 									<div class="row half">
 										<div class="12u">
-											<textarea name="message" placeholder="Message"></textarea>
+											<textarea name="message" placeholder="Message (Maximum 100 Characters)" maxlength="100"></textarea>
 										</div>
 									</div>
 									<div class="row half">
@@ -246,7 +227,7 @@ needy children in our community can be brought to the event and would be greatly
 								</form>
 							</section>
 						</div>
-						-->
+						
 						
 					</div>
 
